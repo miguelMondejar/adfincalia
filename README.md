@@ -123,23 +123,6 @@ Text (Gris Oscuro):             #1A1A1A
 Light Background (Gris Claro):  #F5F5F5
 ```
 
-## 📧 Configuración EmailJS
-
-Para habilitar el envío de formularios por email:
-
-1. Regístrate en [EmailJS](https://www.emailjs.com/)
-2. Crea un servicio de email
-3. Crea plantillas de email
-4. Actualiza los valores en `src/data/constants.js`:
-
-```javascript
-export const EMAILJS_SERVICE_ID = "service_xxxxxxxxxxxxxxx";
-export const EMAILJS_TEMPLATE_ID = "template_xxxxxxxxxxxxxxx";
-export const EMAILJS_USER_ID = "user_xxxxxxxxxxxxxxxx";
-```
-
-**Nota**: Los formularios funcionan en modo demo si los IDs de EmailJS no están configurados.
-
 ## 📱 Responsive Design
 
 El proyecto está optimizado para todos los tamaños de pantalla:
@@ -181,7 +164,3 @@ Para reportar problemas o sugerencias, por favor contacta a través de:
 ## 📄 Licencia
 
 © 2026 adfincalia. Todos los derechos reservados.
-
----
-
-**Nota**: Este proyecto fue desarrollado como base profesional. Se recomienda actualizar todos los datos de contacto, imágenes y contenido con información real de la empresa.
