@@ -1,21 +1,23 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Gallery from "./components/Gallery";
+import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
-import Tariffs from "./components/Tariffs";
+import RealEstate from "./components/RealEstate";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Car from "./components/Car";
+import CookieConsent from "./components/CookieConsent";
 
 function App() {
   return (
     <div className="font-sans text-gray-800 bg-white">
       <Navbar />
-      <Hero />
+      <Gallery />
+      <AboutUs />
       <Services />
-      <Tariffs />
-      <Car />
+      <RealEstate />
       <Contact />
       <Footer />
+      <CookieConsent />
     </div>
   );
 }

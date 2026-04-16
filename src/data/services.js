@@ -1,58 +1,42 @@
 import {
-  faRoute,
-  faPlaneDeparture,
-  faCalendarCheck,
-  faCarSide,
-  faHeartPulse,
+  faCalculator,
+  faWrench,
+  faBalanceScale,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const SERVICES_DATA = [
   {
-    icon: faRoute,
-    title: "Traslados nacionales",
-    desc: "Servicio urbano e interurbano en territorio nacional.",
+    icon: faCalculator,
+    title: "Gestión Contable",
+    desc: "Administración financiera completa de tu finca.",
     details: [
-      "Desplazamientos locales dentro de Socuéllamos.",
-      "Desplazamientos a ciudades y otras localidades.",
-      "Ejemplos frecuentes: Tomelloso, Alcázar de San Juan, Madrid, Valencia, Alicante..."
+      "Contabilidad y control de ingresos y gastos.",
+      "Elaboración de presupuestos anuales.",
+      "Gestión de nóminas y pagos a proveedores.",
+      "Asesoramiento fiscal y cumplimiento de obligaciones."
     ],
   },
   {
-    icon: faPlaneDeparture,
-    title: "Traslados a aeropuertos",
-    desc: "Servicio de taxi a los principales aeropuertos de España.",
+    icon: faWrench,
+    title: "Mantenimiento Técnico",
+    desc: "Conservación y reparación integral de instalaciones.",
     details: [
-      "Aeropuerto Adolfo Suárez Madrid-Barajas",
-      "Aeropuerto de Valencia",
-      "Aeropuerto de Alicante-Elche",
-      "Aeropuerto de Sevilla",
-      "Aeropuerto de Málaga y otros"
+      "Inspecciones periódicas de estructuras.",
+      "Gestión de averías y mantenimiento preventivo.",
+      "Coordinación con técnicos especializados.",
+      "Control de calidad en trabajos de reparación."
     ],
   },
   {
-    icon: faCalendarCheck,
-    title: "Reservas concertadas",
-    desc: "Organiza tu viaje con antelación de forma cómoda y segura.",
+    icon: faBalanceScale,
+    title: "Asesoramiento Legal",
+    desc: "Protección de tus derechos e intereses.",
     details: [
-      "Ideal para viajes de trabajo, citas médicas, trámites y eventos.",
-      "Confirmación inmediata y puntualidad garantizada."
-    ],
-  },
-  {
-    icon: faCarSide,
-    title: "Servicios especiales",
-    desc: "Traslados personalizados adaptados a tus necesidades.",
-    details: [
-      "Eventos, bodas, celebraciones y transporte de invitados.",
-      "Servicios para empresas y desplazamientos continuados."
-    ],
-  },
-  {
-    icon: faHeartPulse,
-    title: "Centros médicos",
-    desc: "Traslados a centros médicos en territorio nacional.",
-    details: [
-      "Hospitales, clínicas, mutuas, centros de rehabilitación, etc",
+      "Redacción de documentos y contratos.",
+      "Resolución de conflictos entre copropietarios.",
+      "Asesoramiento sobre normativas inmobiliarias.",
+      "Gestión administrativa y legal completa."
     ],
   }
 ];
+

@@ -1,7 +1,8 @@
 {
-  "name": "taxi-mondejar",
+  "name": "adfincalia",
   "private": true,
   "version": "1.0.0",
+  "description": "adfincalia - Administración de Fincas & Servicios Inmobiliarios",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.0",

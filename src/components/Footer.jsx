@@ -6,83 +6,102 @@ import {
   faWhatsapp,
   faFacebook,
   faInstagram,
-  faTiktok,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import logo from "../assets/logo_mondejar_taxi.png";
-import { COMPANY_NAME, LOCATION, PHONE_LINK, PHONE_FORMATTED, SOCIAL_LINKS, LICENSE } from "../data/constants";
+import { COMPANY_NAME, COMPANY_FULL_NAME, LOCATION, PHONE_LINK, PHONE_FORMATTED, SOCIAL_LINKS, EMAIL, CIF } from "../data/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E1E1E] text-gray-300 py-12 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer className="bg-[#1A1A1A] text-gray-300 py-12 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-[#5AAD94] font-bold text-lg mb-4">{COMPANY_NAME}</h3>
+            <p className="text-sm mb-2">{COMPANY_FULL_NAME}</p>
+            <p className="text-sm text-gray-400">CIF: {CIF}</p>
+            <p className="text-sm mt-4">{LOCATION}</p>
+          </div>
 
-        {/* Logo */}
-        <div className="flex items-center gap-5">
-          <img
-            src={logo}
-            alt={COMPANY_NAME}
-            className="w-28 md:w-32 drop-shadow-lg"
-          />
-          <div className="text-left">
-            <p className="font-bold text-lg text-white">{COMPANY_NAME}</p>
-            <p>{LICENSE}</p>
-            <p>{LOCATION}</p>
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-[#5AAD94] font-bold text-lg mb-4">Contacto</h3>
             <a
               href={PHONE_LINK}
-              className="flex items-center gap-2 text-yellow-500 hover:text-yellow-600 transition mt-2"
+              className="flex items-center gap-2 text-[#5AAD94] hover:text-[#A47C48] transition mb-2"
             >
               <FontAwesomeIcon icon={faPhoneAlt} />
-              <FontAwesomeIcon icon={faWhatsapp} />
               <span>{PHONE_FORMATTED}</span>
             </a>
+            <a
+              href={SOCIAL_LINKS.email}
+              className="text-[#5AAD94] hover:text-[#A47C48] transition text-sm break-all"
+            >
+              {EMAIL}
+            </a>
+            <a
+              href={SOCIAL_LINKS.email}
+              className="flex items-center gap-2 text-[#5AAD94] hover:text-[#A47C48] transition mt-2"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h3 className="text-[#5AAD94] font-bold text-lg mb-4">Síguenos</h3>
+            <div className="flex gap-4 text-2xl">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 transition"
+                aria-label="adfincalia en Facebook"
+              >
+                <FontAwesomeIcon icon={faFacebook} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-500 hover:text-pink-700 transition"
+                aria-label="adfincalia en Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-700 hover:text-blue-900 transition"
+                aria-label="adfincalia en LinkedIn"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* RRSS */}
-        <div className="flex gap-6 text-2xl md:text-3xl">
-          <a
-            href={SOCIAL_LINKS.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 transition"
-          >
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          <a
-            href={SOCIAL_LINKS.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-pink-500 hover:text-pink-700 transition"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href={SOCIAL_LINKS.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-100 hover:text-gray-300 transition"
-          >
-            <FontAwesomeIcon icon={faTiktok} />
-          </a>
+        {/* Legal Info */}
+        <div className="border-t border-gray-700 pt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 text-sm">
+            <div>
+              <p className="text-gray-400">
+                <strong className="text-white">Aviso Legal:</strong> Esta web utiliza cookies propias y de terceros.
+              </p>
+            </div>
+            <div>
+              <p className="text-gray-400">
+                <strong className="text-white">Privacidad:</strong> Consulta nuestra política de privacidad y protección de datos.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center text-xs text-gray-500">
+            © {new Date().getFullYear()} {COMPANY_NAME} – Todos los derechos reservados.
+          </div>
         </div>
-      </div>
-
-      <div className="text-center mt-10">
-        <p className="mb-12 text-white-600 text-lg md:text-xl">
-          <a
-            href={SOCIAL_LINKS.googleReview}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 hover:text-yellow-400 transition"
-          >
-            <span>Déjanos tu reseña en Google</span>
-            <span aria-hidden>⭐⭐⭐⭐⭐</span>
-          </a>
-        </p>
-      </div>
-
-      <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} {COMPANY_NAME} – Todos los derechos reservados.
       </div>
     </footer>
   );

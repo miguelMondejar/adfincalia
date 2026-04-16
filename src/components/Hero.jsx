@@ -1,44 +1,41 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
-import heroImage from "../assets/socuellamos.avif";
-import logo from "../assets/logo_mondejar_taxi.png";
-import { PHONE_LINK, HERO_TITLE, HERO_SUBTITLE, LICENSE } from "../data/constants";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { HERO_TITLE, HERO_SUBTITLE, HERO_CTA, SECTIONS } from "../data/constants";
 
 export default function Hero() {
+  const handleScrollToContacto = () => {
+    document.querySelector(`#${SECTIONS.contact}`)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="inicio"
-      className="h-[90vh] text-white text-center bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: `url(${heroImage})` }}
+      className="h-[90vh] text-white text-center bg-gradient-to-r from-[#5AAD94] to-[#A47C48] relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+      {/* Gradient Background */}
+      <div className="absolute inset-0 opacity-30" style={{
+        backgroundImage: 'linear-gradient(135deg, rgba(84, 173, 148, 0.3) 0%, rgba(164, 124, 72, 0.3) 100%)',
+      }}></div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
+        <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-lg">
+          <span className="text-5xl md:text-6xl font-bold text-[#5AAD94]">AD</span>
+        </div>
 
-        <img
-          src={logo}
-          alt="Taxi Mondéjar S.L."
-          className="w-40 md:w-56 mb-3 drop-shadow-lg"
-        />
-
-        <p className="text-sm md:text-base text-gray-200 mb-6">
-          {LICENSE}
-        </p>
-
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
           {HERO_TITLE}
         </h1>
 
-        <p className="text-lg md:text-xl mb-10 text-gray-200">
+        <p className="text-lg md:text-2xl mb-12 text-gray-100 max-w-2xl">
           {HERO_SUBTITLE}
         </p>
 
-        <a
-          href={PHONE_LINK}
-          className="bg-yellow-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-600 transition flex items-center gap-3 text-lg shadow-lg"
+        <button
+          onClick={handleScrollToContacto}
+          className="bg-white text-[#5AAD94] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex items-center gap-3 text-lg shadow-lg"
         >
-          <FontAwesomeIcon icon={faPhoneAlt} /> Llamar
-        </a>
+          {HERO_CTA} <FontAwesomeIcon icon={faArrowRight} />
+        </button>
       </div>
     </section>
   );
