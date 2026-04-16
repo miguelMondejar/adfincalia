@@ -1,220 +1,187 @@
-# 🚕 Mondéjar Taxi S.L.
+# adfincalia - Administración de Fincas & Servicios Inmobiliarios
 
-**Sitio web oficial de Mondéjar Taxi S.L.** - El servicio de taxi de confianza en **Socuéllamos (Ciudad Real)**.
+## 📋 Descripción
 
-Sitio web diseñado y desarrollado por **Miguel Mondéjar González** para ofrecer a los clientes toda la información necesaria sobre tarifas, contacto, servicios y formas de pago, con un diseño moderno, responsive y optimizado para dispositivos móviles.
+adfincalia es un sitio web profesional para una empresa de administración de fincas y servicios inmobiliarios. Desarrollado con React y Vite, ofrece una experiencia moderna y responsive con todas las secciones necesarias para presentar servicios de administración de propiedades.
 
-**Licencia municipal nº 2** | Disponible 24/7 | CIF: B24955114
+## ✨ Características
 
-## 🌟 Características Principales
+### Secciones
+- **Inicio**: Héroe con imagen corporativa y CTA "Solicitar Presupuesto"
+- **Quiénes Somos**: Descripción de trayectoria, valores y estadísticas
+- **Servicios**: Los 3 servicios principales (Gestión Contable, Mantenimiento, Asesoramiento Legal)
+- **Galería**: Carrusel interactivo de instalaciones y servicios
+- **Inmobiliaria**: Servicios inmobiliarios con formulario de captación de inmuebles
+- **Contacto**: Formulario de contacto y datos de contacto con integración de redes sociales
 
-### Para Clientes
-- 📞 **Llamada Directa**: Botón de llamada prominente en hero y navbar
-- 💬 **WhatsApp**: Contacto rápido por WhatsApp directamente
-- 🗺️ **Ubicación**: Socuéllamos, Ciudad Real
-- 💳 **Métodos de Pago**: Efectivo, Tarjeta, Bizum
-- ♿ **Accesibilidad**: WCAG compliant, aria-labels, semántica HTML
+### Elementos Globales
+- ✅ Navegación responsive con menú móvil
+- ✅ Botón flotante de WhatsApp (integrable)
+- ✅ Footer con información legal y redes sociales
+- ✅ Sistema de colores corporativo (Verde #5AAD94 y Madera #A47C48)
 
-### Secciones del Sitio
-- **Hero Section**: Imagen de fondo, CTA prominente
-- **Servicios**: Trayectos urbanos, interurbanos, aeropuertos
-- **Tarifas**: Información de precios orientativos
-- **Vehículo**: Galería carrusel del SEAT León con especificaciones
-- **Asientos Infantiles**: Disponibles bajo previo aviso
-- **Contacto**: Teléfono, WhatsApp, redes sociales
-- **Footer**: Links, información legal, redes sociales
+### Funcionalidades Técnicas
+- **React 19**: Framework UI modular
+- **Vite 7**: Build tool ultrarrápido
+- **Tailwind CSS 3**: Utilidades de estilos responsive
+- **FontAwesome 7**: Iconografía profesional
+- **EmailJS**: Integración de formularios por email (configurable)
+- **SEO Optimizado**: Meta tags, robots.txt, sitemap.xml
 
-### Características Técnicas
-- ✨ **Diseño Responsivo**: Mobile-first, adaptado a todos los dispositivos
-- 🎨 **Paleta Profesional**: Amarillo (#FFD60A) + Negro (#1E1E1E)
-- ⚡ **Performance Optimizado**: Imágenes optimizadas, lazy loading
-- 🔍 **SEO Optimizado**: Meta tags, Open Graph, JSON-LD Schema
-- 🎬 **Transiciones Suaves**: Hover effects, animations
-- 📱 **Mobile Friendly**: Diseño táctil, menú adaptativo
+## 🛠️ Stack Técnico
+
+| Tecnología | Versión | Propósito |
+|---|---|---|
+| React | 19.1.1 | Framework UI |
+| ReactDOM | 19.1.1 | Rendering en DOM |
+| Vite | 7.1.7 | Build tool |
+| Tailwind CSS | 3.4.13 | Framework CSS |
+| FontAwesome | 7.1.0 | Iconografía |
+| EmailJS | 4.4.1 | Envío de emails |
+| ESLint | 9.36.0 | Linting de código |
 
 ## 📁 Estructura del Proyecto
 
 ```
-src/
-├── components/
-│   ├── Navbar.jsx         # Navegación principal con logo y CTA
-│   ├── Hero.jsx           # Sección hero con imagen de fondo
-│   ├── Services.jsx       # Tipos de servicios disponibles
-│   ├── Tariffs.jsx        # Tarifas y métodos de pago
-│   ├── Car.jsx            # Galería del vehículo (carrusel)
-│   ├── Contact.jsx        # Información de contacto y RRSS
-│   └── Footer.jsx         # Pie de página
-├── data/
-│   ├── constants.js       # Datos centralizados (teléfono, URLs, etc)
-│   ├── services.js        # Información de servicios
-│   ├── tariffs.js         # Tarifas y especificaciones
-│   └── car.js             # Especificaciones del vehículo
-├── assets/
-│   ├── seat-leon-*.jpeg   # Imágenes del vehículo
-│   ├── asiento-*.png      # Imágenes de asientos infantiles
-│   └── socuellamos.avif   # Imagen hero
-├── App.jsx                # Componente principal
-├── App.css                # Estilos globales
-├── index.css              # Tailwind + animaciones
-└── main.jsx               # Punto de entrada
-
-public/
-├── img/                   # Imágenes optimizadas
-└── robots.txt             # SEO
-
-dist/                      # Build de producción
+adfincalia/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx          # Navegación principal
+│   │   ├── Hero.jsx            # Sección héroe
+│   │   ├── AboutUs.jsx         # Quiénes somos
+│   │   ├── Services.jsx        # Servicios principales
+│   │   ├── Gallery.jsx         # Galería de imágenes
+│   │   ├── RealEstate.jsx      # Servicios inmobiliarios + formulario
+│   │   ├── Contact.jsx         # Contacto + formulario
+│   │   └── Footer.jsx          # Pie de página
+│   ├── data/
+│   │   ├── constants.js        # Constantes de configuración
+│   │   ├── services.js         # Datos de servicios
+│   │   └── realEstateServices.js # Datos servicios inmobiliarios
+│   ├── assets/                 # Imágenes y media
+│   ├── App.jsx                 # Componente raíz
+│   ├── main.jsx                # Punto de entrada
+│   ├── App.css                 # Estilos de App
+│   └── index.css               # Estilos globales
+├── public/                     # Archivos estáticos
+├── package.json                # Dependencias
+├── vite.config.js              # Configuración Vite
+├── tailwind.config.js          # Configuración Tailwind
+├── postcss.config.js           # Configuración PostCSS
+└── index.html                  # HTML principal
 ```
 
-## 🚀 Inicio Rápido
+## 🚀 Instalación y Uso
 
 ### Requisitos
-- Node.js >= 16
+- Node.js 16+ 
 - npm o yarn
 
 ### Instalación
 
 ```bash
-# Clonar repositorio
-git clone https://github.com/miguelMondejar/taxi-mondejar.git
-cd taxi-mondejar
+# Navegar al directorio del proyecto
+cd adfincalia
 
 # Instalar dependencias
 npm install
+```
 
-# Desarrollo (http://localhost:5173)
+### Desarrollo
+
+```bash
+# Iniciar servidor de desarrollo
 npm run dev
 
-# Build para producción
+# El proyecto estará disponible en http://localhost:5173
+```
+
+### Build para Producción
+
+```bash
+# Compilar y optimizar para producción
 npm run build
 
-# Preview del build
+# Vista previa de la build
 npm run preview
+```
 
-# Lint
+### Linting
+
+```bash
+# Ejecutar ESLint
 npm run lint
 ```
 
-## 📦 Dependencias Principales
-
-```json
-{
-  "react": "^19.1.1",
-  "react-dom": "^19.1.1",
-  "@fortawesome/react-fontawesome": "^3.1.0",
-  "@fortawesome/free-solid-svg-icons": "^7.1.0",
-  "@fortawesome/free-brands-svg-icons": "^7.1.0"
-}
-```
-
-## 🎯 Características Destacadas
-
-### Sistema de Contacto Integrado
-- **Teléfono directo**: +34 690 87 10 80
-- **WhatsApp**: Link directo de chat
-- **Redes sociales**: Facebook, Instagram, TikTok
-- **Email**: Disponible en footer
-
-### Galería de Vehículo Interactiva
-- Carrusel automático de imágenes
-- Navegación con flechas y miniaturas
-- Controles con teclado (←/→)
-- Pausa al pasar el mouse
-- Lazy loading de imágenes
-
-### Información del Vehículo
-- **Modelo**: SEAT León ST 1.5 FR Special Edition
-- **Potencia**: 150 CV
-- **Equipamiento**: Aire acondicionado, asientos de cuero, etc.
-- **Asientos infantiles**: Disponibles bajo previo aviso
-
-### SEO Optimizado
-- Meta tags descriptivos
-- Open Graph para redes sociales
-- Twitter Card
-- JSON-LD Schema (TaxiService)
-- Canonical URL
-- Robots.txt configurado
-
 ## 🎨 Paleta de Colores
 
-- **Primario**: `#FFD60A` (Amarillo taxi - navbar, CTAs)
-- **Secundario**: `#1E1E1E` (Negro profesional - fondo, texto)
-- **Acentos**: Gris para textos secundarios
-- **Hover**: Transiciones suaves entre estados
+```
+Primary (Verde Profesional):    #5AAD94
+Secondary (Madera):             #A47C48
+Background (Blanco):            #FFFFFF
+Text (Gris Oscuro):             #1A1A1A
+Light Background (Gris Claro):  #F5F5F5
+```
 
-## 📈 Información de Contacto
+## 📧 Configuración EmailJS
 
-| Canal | Contacto | Disponibilidad |
-|-------|----------|----------------|
-| **Teléfono** | +34 690 87 10 80 | 24/7 |
-| **WhatsApp** | +34 690 87 10 80 | 24/7 |
-| **Ubicación** | Socuéllamos, Ciudad Real | Servicio local |
-| **Licencia** | Municipal nº 2 | Regulado |
+Para habilitar el envío de formularios por email:
 
-## 🏆 Servicios Ofertados
+1. Regístrate en [EmailJS](https://www.emailjs.com/)
+2. Crea un servicio de email
+3. Crea plantillas de email
+4. Actualiza los valores en `src/data/constants.js`:
 
-1. **Trayectos urbanos** - Dentro de Socuéllamos
-2. **Trayectos interurbanos** - A otras ciudades (Ciudad Real, Toledo, etc)
-3. **Traslados a aeropuertos** - Conexión con aeropuertos cercanos
-4. **Servicio 24 horas** - Disponibilidad constante
-5. **Asientos infantiles** - Bajo previo aviso
+```javascript
+export const EMAILJS_SERVICE_ID = "service_xxxxxxxxxxxxxxx";
+export const EMAILJS_TEMPLATE_ID = "template_xxxxxxxxxxxxxxx";
+export const EMAILJS_USER_ID = "user_xxxxxxxxxxxxxxxx";
+```
+
+**Nota**: Los formularios funcionan en modo demo si los IDs de EmailJS no están configurados.
+
+## 📱 Responsive Design
+
+El proyecto está optimizado para todos los tamaños de pantalla:
+
+- **Mobile**: 320px - 640px
+- **Tablet**: 641px - 1024px
+- **Desktop**: 1025px+
 
 ## ♿ Accesibilidad
 
-- ✅ Semántica HTML5 correcta
-- ✅ aria-labels en botones
-- ✅ Roles ARIA apropiados
-- ✅ Contraste de color WCAG compliant
-- ✅ Navegación por teclado
-- ✅ Focus indicators visibles
+- Etiquetas semánticas HTML5
+- Atributos ARIA para elementos interactivos
+- Contraste de colores WCAG AA
+- Navegación por teclado completa
+
+## 📄 Información Legal
+
+- **Empresa**: adfincalia
+- **Ubicación**: España
+- **Email**: info@adfincalia.es (actualizar)
+- **Teléfono**: +34 610 61 27 10 (actualizar)
 
 ## 📝 Changelog
 
-### v1.0.0 (2025-11-18)
-- ✨ Sitio web oficial Mondéjar Taxi S.L.
-- 📱 Diseño responsive mobile-first
-- 🎨 Branding profesional (amarillo + negro)
-- 📞 Integración teléfono y WhatsApp
-- 💳 Métodos de pago: efectivo, tarjeta, Bizum
-- 🚗 Galería de vehículo con carrusel
-- 👶 Información asientos infantiles
-- 🔍 SEO optimizado
-- ♿ WCAG accesibilidad
-- ⚡ Performance optimizado
+### v1.0.0 (Apr 10, 2025)
+- ✅ Proyecto inicial creado
+- ✅ 6 secciones principales implementadas
+- ✅ Sistema de formularios con EmailJS
+- ✅ Galería interactiva
+- ✅ Paleta de colores corporativa
+- ✅ Diseño responsive completo
+- ✅ SEO optimizado
 
-## 📋 Información Legal
+## 🤝 Soporte y Contribuciones
 
-- **Empresa**: Mondéjar Taxi S.L.
-- **CIF**: B24955114
-- **Licencia**: Municipal nº 2, Socuéllamos (Ciudad Real)
-- **Teléfono**: +34 690 87 10 80
-
-**Desarrollado por**: Miguel Mondéjar González
-
-## Tecnologías utilizadas
-
-| Tecnología | Descripción | Versión |
-|-------------|------------|---------|
-| [React](https://react.dev/) | Librería UI para interfaces interactivas | ^19.1.1 |
-| [Vite](https://vitejs.dev/) | Bundler ultra-rápido y dev server | ^7.1.7 |
-| [Tailwind CSS](https://tailwindcss.com/) | Framework CSS utilitario para diseño | ^3.4.13 |
-| [Font Awesome](https://fontawesome.com/) | Librería de iconos vectoriales | ^7.x |
-| [PostCSS](https://postcss.org/) | Procesador CSS con plugins | ^8.5.6 |
-| [Autoprefixer](https://autoprefixer.github.io/) | Plugin para prefijos CSS automáticos | ^10.4.21 |
-
-## 📞 Contacto y Redes Sociales
-
-- **Teléfono**: +34 690 87 10 80
-- **WhatsApp**: [Chat directo](https://wa.me/34690871080)
-- **Facebook**: [Mondéjar Taxi S.L.](https://www.facebook.com/mondejartaxisl)
-- **Instagram**: [@mondejartaxisl](https://www.instagram.com/mondejartaxisl)
-- **TikTok**: [@mondejartaxisl](https://www.tiktok.com/@mondejartaxisl)
+Para reportar problemas o sugerencias, por favor contacta a través de:
+- Email: info@adfincalia.es
 
 ## 📄 Licencia
 
-**Sitio web desarrollado para Mondéjar Taxi S.L.** (CIF: B24955114)
+© 2026 adfincalia. Todos los derechos reservados.
 
-El código puede ser reutilizado con fines educativos o personales, pero **no para uso comercial sin permiso explícito de Mondéjar Taxi S.L.**
+---
 
-**Sitio web**: https://mondejartaxisl.com
-
+**Nota**: Este proyecto fue desarrollado como base profesional. Se recomienda actualizar todos los datos de contacto, imágenes y contenido con información real de la empresa.
