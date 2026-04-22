@@ -18,7 +18,7 @@ export default function AboutUs() {
             Quiénes Somos
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En adfincalia, somos especialistas en administración de fincas y servicios inmobiliarios con más de una década de experiencia
+            En adfincas, somos especialistas en administración de fincas y servicios inmobiliarios con más de una década de experiencia
           </p>
         </div>
 

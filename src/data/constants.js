@@ -1,21 +1,21 @@
 // Contact Information
 export const PHONE = "+610612710";
 export const PHONE_FORMATTED = "+34 610 61 27 10";
-export const WHATSAPP_URL = "https://wa.me/610612710";
+export const WHATSAPP_URL = "https://wa.me/34610612710";
 export const PHONE_LINK = "tel:+610612710";
-export const EMAIL = "info@adfincalia.es";
+export const EMAIL = "info@grupoadfincas.es";
 
 // Company Information
-export const COMPANY_NAME = "adfincalia";
-export const COMPANY_FULL_NAME = "adfincalia - Administración de Fincas & Servicios Inmobiliarios";
+export const COMPANY_NAME = "adfincas";
+export const COMPANY_FULL_NAME = "adfincas - Administración de Fincas & Servicios Inmobiliarios";
 export const LOCATION = "España";
 export const CIF = "A12345678";
 
 // Social Links
 export const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/adfincalia",
-  instagram: "https://www.instagram.com/adfincalia",
-  linkedin: "https://www.linkedin.com/company/adfincalia",
+  facebook: "https://www.facebook.com/adfincas",
+  instagram: "https://www.instagram.com/adfincas",
+  linkedin: "https://www.linkedin.com/company/adfincas",
   email: EMAIL,
 };
 

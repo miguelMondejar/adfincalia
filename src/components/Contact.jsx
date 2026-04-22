@@ -93,7 +93,7 @@ export default function Contact() {
               <a
                 href={PHONE_LINK}
                 className="flex items-center gap-4 text-[#5AAD94] text-lg font-semibold hover:text-[#A47C48] transition"
-                aria-label={`Llamar a adfincalia al ${PHONE_FORMATTED}`}
+                aria-label={`Llamar a adfincas al ${PHONE_FORMATTED}`}
               >
                 <div className="w-12 h-12 bg-[#5AAD94] rounded-full flex items-center justify-center text-white">
                   <FontAwesomeIcon icon={faPhoneAlt} />
@@ -107,7 +107,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-[#5AAD94] text-lg font-semibold hover:text-[#A47C48] transition"
-                aria-label="Abrir WhatsApp con adfincalia"
+                aria-label="Abrir WhatsApp con adfincas"
               >
                 <div className="w-12 h-12 bg-[#5AAD94] rounded-full flex items-center justify-center text-white">
                   <FontAwesomeIcon icon={faWhatsapp} />
@@ -119,7 +119,7 @@ export default function Contact() {
               <a
                 href={`mailto:${SOCIAL_LINKS.email}`}
                 className="flex items-center gap-4 text-[#5AAD94] text-lg font-semibold hover:text-[#A47C48] transition"
-                aria-label={`Enviar email a adfincalia: ${SOCIAL_LINKS.email}`}
+                aria-label={`Enviar email a adfincas: ${SOCIAL_LINKS.email}`}
               >
                 <div className="w-12 h-12 bg-[#5AAD94] rounded-full flex items-center justify-center text-white">
                   <FontAwesomeIcon icon={faPaperPlane} />
@@ -137,7 +137,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 transition"
-                  aria-label="adfincalia en Facebook"
+                  aria-label="adfincas en Facebook"
                 >
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
@@ -146,7 +146,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-pink-500 hover:text-pink-700 transition"
-                  aria-label="adfincalia en Instagram"
+                  aria-label="adfincas en Instagram"
                 >
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
@@ -155,7 +155,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-700 hover:text-blue-900 transition"
-                  aria-label="adfincalia en LinkedIn"
+                  aria-label="adfincas en LinkedIn"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>

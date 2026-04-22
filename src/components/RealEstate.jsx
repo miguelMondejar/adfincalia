@@ -59,7 +59,7 @@ export default function RealEstate() {
             owner_name: formData.ownerName,
             owner_phone: formData.ownerPhone,
             owner_email: formData.ownerEmail,
-            to_email: "info@adfincalia.es",
+            to_email: "info@grupoadfincas.es",
           },
           EMAILJS_USER_ID
         );

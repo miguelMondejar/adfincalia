@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; 
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /node_modules/
 
-Sitemap: https://adfincalia.es/sitemap.xml
+Sitemap: https://grupoadfincas.es/sitemap.xml

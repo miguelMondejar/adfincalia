@@ -57,7 +57,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 transition"
-                aria-label="adfincalia en Facebook"
+                aria-label="adfincas en Facebook"
               >
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
@@ -66,7 +66,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-pink-500 hover:text-pink-700 transition"
-                aria-label="adfincalia en Instagram"
+                aria-label="adfincas en Instagram"
               >
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
@@ -75,7 +75,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-700 hover:text-blue-900 transition"
-                aria-label="adfincalia en LinkedIn"
+                aria-label="adfincas en LinkedIn"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>

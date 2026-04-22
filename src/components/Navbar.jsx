@@ -12,220 +12,244 @@ import { PHONE_LINK, MENU_ITEMS, COMPANY_NAME, SOCIAL_LINKS, WHATSAPP_URL } from
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      if (window.scrollY > 50 && menuOpen) {
+        setMenuOpen(false);
+      }
+
+      let current = "";
+      MENU_ITEMS.forEach((item) => {
+        const section = document.querySelector(item.href);
+        if (section) {
+          const sectionTop = section.offsetTop - 100;
+          if (window.scrollY >= sectionTop) {
+            current = item.href;
+          }
+        }
+      });
+      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen]);
 
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (e, href) => {
+    e.preventDefault(); 
+    setMenuOpen(false); 
+
+    const section = document.querySelector(href);
+    if (section) {
+      const sectionTop = section.offsetTop - 100;
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault(); 
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setMenuOpen(false);
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white shadow-lg"
-          : "bg-gradient-to-r from-[#5AAD94] to-[#A47C48] shadow-md"
+          ? "bg-white shadow-lg py-1"
+          : "bg-gradient-to-r from-[#5AAD94] to-[#A47C48] shadow-md py-2"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20 transition-all duration-300">
+          
           {/* Logo */}
           <a
             href="#inicio"
-            className={`flex items-center gap-3 font-bold text-2xl transition-all duration-300 ${
-              scrolled
-                ? "text-[#5AAD94]"
-                : "text-white"
+            onClick={scrollToTop}
+            className={`flex items-center gap-3 font-bold text-2xl transition-all duration-300 hover:scale-105 ${
+              scrolled ? "text-[#5AAD94]" : "text-white"
             }`}
-            aria-label="adfincalia - Inicio"
+            aria-label="adfincas - Inicio"
           >
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300 ${
-                scrolled
-                  ? "bg-[#5AAD94] text-white"
-                  : "bg-white text-[#5AAD94]"
+              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300 shadow-sm ${
+                scrolled ? "bg-[#5AAD94] text-white" : "bg-white text-[#5AAD94]"
               }`}
             >
               AD
             </div>
-            <span className="hidden sm:inline">adfincalia</span>
+            <span className="hidden sm:inline tracking-tight">adfincas</span>
           </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex flex-1 justify-center gap-8 mx-8">
-            {MENU_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition-all duration-300 hover:opacity-80 relative group ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
-              >
-                {item.label}
-                <span
-                  className={`absolute bottom-0 left-0 w-0 h-0.5 ${
-                    scrolled ? "bg-[#5AAD94]" : "bg-white"
-                  } transition-all duration-300 group-hover:w-full`}
-                ></span>
-              </a>
-            ))}
+            {MENU_ITEMS.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleMenuItemClick(e, item.href)}
+                  className={`text-sm font-semibold transition-all duration-300 relative group py-2 ${
+                    scrolled 
+                      ? (isActive ? "text-[#5AAD94]" : "text-gray-600 hover:text-[#5AAD94]") 
+                      : (isActive ? "text-white" : "text-gray-200 hover:text-white")
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 rounded-full ${
+                      scrolled ? "bg-[#5AAD94]" : "bg-white"
+                    } ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex gap-3 items-center">
-            {/* WhatsApp Button */}
+            {/* WhatsApp */}
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+              className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 scrolled
-                  ? "bg-green-100 text-green-600 hover:bg-green-200"
-                  : "bg-white bg-opacity-20 text-white hover:bg-opacity-30"
+                  ? "bg-green-100 text-green-600 hover:bg-green-500 hover:text-white"
+                  : "bg-white/20 text-white hover:bg-green-500 hover:border-transparent"
               }`}
               title="Contactar por WhatsApp"
-              aria-label="Abrir WhatsApp"
             >
               <FontAwesomeIcon icon={faWhatsapp} size="lg" />
             </a>
 
-            {/* Email Button */}
+            {/* Email */}
             <a
-              href={`mailto:${SOCIAL_LINKS.email}`}
-              className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+              href={`mailto:${SOCIAL_LINKS?.email}`}
+              className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 scrolled
-                  ? "bg-blue-100 text-blue-600 hover:bg-blue-200"
-                  : "bg-white bg-opacity-20 text-white hover:bg-opacity-30"
+                  ? "bg-blue-100 text-blue-600 hover:bg-blue-500 hover:text-white"
+                  : "bg-white/20 text-white hover:bg-blue-500"
               }`}
               title="Enviar email"
-              aria-label="Enviar email"
             >
               <FontAwesomeIcon icon={faEnvelope} size="lg" />
             </a>
 
-            {/* Phone Button */}
+            {/* Phone */}
             <a
               href={PHONE_LINK}
-              className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 hover:shadow-lg ${
+              className={`flex items-center px-5 py-2.5 rounded-full font-bold transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md ${
                 scrolled
-                  ? "bg-[#5AAD94] text-white hover:bg-[#A47C48]"
-                  : "bg-white text-[#5AAD94] hover:bg-gray-100"
+                  ? "bg-[#5AAD94] text-white hover:bg-[#438a74]"
+                  : "bg-white text-[#5AAD94] hover:bg-gray-50"
               }`}
-              aria-label="Llamar"
             >
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
               <span className="hidden lg:inline">Llamar</span>
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex gap-2 items-center">
-            {/* Mobile WhatsApp Icon */}
+          {/* Mobile Menu Toggle Button */}
+          <div className="md:hidden flex gap-3 items-center">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2 rounded-full transition-all duration-300 ${
-                scrolled
-                  ? "bg-green-100 text-green-600"
-                  : "bg-white bg-opacity-20 text-white"
+              className={`w-9 h-9 flex items-center justify-center rounded-full transition-all duration-300 ${
+                scrolled ? "bg-green-100 text-green-600" : "bg-white/20 text-white"
               }`}
-              title="WhatsApp"
-              aria-label="WhatsApp"
             >
-              <FontAwesomeIcon icon={faWhatsapp} />
+              <FontAwesomeIcon icon={faWhatsapp} size="lg" />
             </a>
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`p-2 rounded-lg transition-all duration-300 ${
+              className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300 ${
                 scrolled
-                  ? "text-gray-700 hover:bg-gray-100"
-                  : "text-white hover:bg-white hover:bg-opacity-20"
+                  ? "text-gray-700 bg-gray-100 hover:bg-gray-200"
+                  : "text-white bg-white/20 hover:bg-white/30"
               }`}
-              aria-controls="mobile-menu"
               aria-expanded={menuOpen}
-              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               <FontAwesomeIcon
                 icon={menuOpen ? faXmark : faBars}
                 size="lg"
+                className={`transition-transform duration-300 ${menuOpen ? "rotate-90" : "rotate-0"}`}
               />
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
+        {/* Mobile Menu Panel con animación suave */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            menuOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
+          }`}
+        >
           <div
-            id="mobile-menu"
-            className={`md:hidden border-t transition-all duration-300 ${
+            className={`rounded-2xl mt-2 overflow-hidden shadow-lg border ${
               scrolled
-                ? "border-gray-200 bg-gray-50"
-                : "border-white border-opacity-20 bg-gradient-to-b from-[#5AAD94] to-[#A47C48]"
+                ? "bg-white border-gray-100"
+                : "bg-white/10 backdrop-blur-md border-white/20"
             }`}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {/* Mobile Menu Items */}
-              {MENU_ITEMS.map((item) => (
+            <div className="flex flex-col p-2 space-y-1">
+              {/* AQUÍ ES DONDE IBA EL CÓDIGO QUE PREGUNTABAS */}
+              {MENU_ITEMS.map((item) => {
+                const isActive = activeSection === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleMenuItemClick(e, item.href)}
+                    className={`px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
+                      scrolled
+                        ? isActive ? "bg-[#5AAD94]/10 text-[#5AAD94]" : "text-gray-700 hover:bg-gray-50"
+                        : isActive ? "bg-white/20 text-white" : "text-white/90 hover:bg-white/10"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+
+              <div className={`h-px w-full my-2 ${scrolled ? "bg-gray-100" : "bg-white/20"}`}></div>
+
+              <div className="grid grid-cols-2 gap-2 mt-2">
                 <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={handleMenuItemClick}
-                  className={`block px-4 py-2 rounded-lg text-base font-medium transition-all duration-300 ${
-                    scrolled
-                      ? "text-gray-700 hover:bg-gray-100"
-                      : "text-white hover:bg-white hover:bg-opacity-20"
+                  href={`mailto:${SOCIAL_LINKS?.email}`}
+                  className={`flex justify-center items-center gap-2 py-3 rounded-xl font-medium transition-all ${
+                    scrolled ? "bg-blue-50 text-blue-600" : "bg-white/20 text-white"
                   }`}
                 >
-                  {item.label}
+                  <FontAwesomeIcon icon={faEnvelope} /> Email
                 </a>
-              ))}
-
-              {/* Divider */}
-              <div
-                className={`my-2 ${
-                  scrolled ? "border-gray-200" : "border-white border-opacity-20"
-                } border-t`}
-              ></div>
-
-              {/* Mobile CTA Buttons */}
-              <a
-                href={`mailto:${SOCIAL_LINKS.email}`}
-                onClick={handleMenuItemClick}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  scrolled
-                    ? "text-blue-600 bg-blue-50 hover:bg-blue-100"
-                    : "text-white bg-white bg-opacity-20 hover:bg-opacity-30"
-                }`}
-              >
-                <FontAwesomeIcon icon={faEnvelope} />
-                <span>Email</span>
-              </a>
-
-              <a
-                href={PHONE_LINK}
-                onClick={handleMenuItemClick}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  scrolled
-                    ? "text-[#5AAD94] bg-green-50 hover:bg-green-100"
-                    : "text-white bg-white bg-opacity-20 hover:bg-opacity-30"
-                }`}
-              >
-                <FontAwesomeIcon icon={faPhone} />
-                <span>Llamar</span>
-              </a>
+                <a
+                  href={PHONE_LINK}
+                  className={`flex justify-center items-center gap-2 py-3 rounded-xl font-bold transition-all shadow-sm ${
+                    scrolled ? "bg-[#5AAD94] text-white" : "bg-white text-[#5AAD94]"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faPhone} /> Llamar
+                </a>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

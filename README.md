@@ -1,8 +1,8 @@
-# adfincalia - Administración de Fincas & Servicios Inmobiliarios
+# adfincas - Administración de Fincas & Servicios Inmobiliarios
 
 ## 📋 Descripción
 
-adfincalia es un sitio web profesional para una empresa de administración de fincas y servicios inmobiliarios. Desarrollado con React y Vite, ofrece una experiencia moderna y responsive con todas las secciones necesarias para presentar servicios de administración de propiedades.
+adfincas es un sitio web profesional para una empresa de administración de fincas y servicios inmobiliarios. Desarrollado con React y Vite, ofrece una experiencia moderna y responsive con todas las secciones necesarias para presentar servicios de administración de propiedades.
 
 ## ✨ Características
 
@@ -43,7 +43,7 @@ adfincalia es un sitio web profesional para una empresa de administración de fi
 ## 📁 Estructura del Proyecto
 
 ```
-adfincalia/
+adfincas/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx          # Navegación principal
@@ -81,7 +81,7 @@ adfincalia/
 
 ```bash
 # Navegar al directorio del proyecto
-cd adfincalia
+cd adfincas
 
 # Instalar dependencias
 npm install
@@ -140,9 +140,9 @@ El proyecto está optimizado para todos los tamaños de pantalla:
 
 ## 📄 Información Legal
 
-- **Empresa**: adfincalia
+- **Empresa**: adfincas
 - **Ubicación**: España
-- **Email**: info@adfincalia.es (actualizar)
+- **Email**: info@grupoadfincas.es (actualizar)
 - **Teléfono**: +34 610 61 27 10 (actualizar)
 
 ## 📝 Changelog
@@ -159,8 +159,8 @@ El proyecto está optimizado para todos los tamaños de pantalla:
 ## 🤝 Soporte y Contribuciones
 
 Para reportar problemas o sugerencias, por favor contacta a través de:
-- Email: info@adfincalia.es
+- Email: info@grupoadfincas.es
 
 ## 📄 Licencia
 
-© 2026 adfincalia. Todos los derechos reservados.
+© 2026 adfincas. Todos los derechos reservados.
