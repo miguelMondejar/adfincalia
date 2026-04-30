@@ -30,9 +30,10 @@ export default function Hero() {
           {HERO_SUBTITLE}
         </p>
 
+        {/* Primary CTA Button */}
         <button
           onClick={handleScrollToContacto}
-          className="bg-white text-[#5AAD94] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex items-center gap-3 text-lg shadow-lg"
+          className="bg-white text-[#5AAD94] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex items-center gap-3 text-lg shadow-lg hover:shadow-2xl hover:scale-105 duration-300"
         >
           {HERO_CTA} <FontAwesomeIcon icon={faArrowRight} />
         </button>

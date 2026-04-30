@@ -8,8 +8,6 @@ export const EMAIL = "info@grupoadfincas.es";
 // Company Information
 export const COMPANY_NAME = "adfincas";
 export const COMPANY_FULL_NAME = "adfincas - Administración de Fincas & Servicios Inmobiliarios";
-export const LOCATION = "España";
-export const CIF = "A12345678";
 
 // Social Links
 export const SOCIAL_LINKS = {

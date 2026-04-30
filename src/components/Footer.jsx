@@ -8,7 +8,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { COMPANY_NAME, COMPANY_FULL_NAME, LOCATION, PHONE_LINK, PHONE_FORMATTED, SOCIAL_LINKS, EMAIL, CIF } from "../data/constants";
+import { COMPANY_NAME, COMPANY_FULL_NAME, PHONE_LINK, PHONE_FORMATTED, SOCIAL_LINKS, EMAIL } from "../data/constants";
 
 export default function Footer() {
   return (
@@ -19,8 +19,6 @@ export default function Footer() {
           <div>
             <h3 className="text-[#5AAD94] font-bold text-lg mb-4">{COMPANY_NAME}</h3>
             <p className="text-sm mb-2">{COMPANY_FULL_NAME}</p>
-            <p className="text-sm text-gray-400">CIF: {CIF}</p>
-            <p className="text-sm mt-4">{LOCATION}</p>
           </div>
 
           {/* Contact Info */}
@@ -85,20 +83,43 @@ export default function Footer() {
 
         {/* Legal Info */}
         <div className="border-t border-gray-700 pt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 text-sm">
-            <div>
-              <p className="text-gray-400">
-                <strong className="text-white">Aviso Legal:</strong> Esta web utiliza cookies propias y de terceros.
-              </p>
-            </div>
-            <div>
-              <p className="text-gray-400">
-                <strong className="text-white">Privacidad:</strong> Consulta nuestra política de privacidad y protección de datos.
-              </p>
+          <div className="mb-6 text-sm">
+            <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+              <a
+                href="/legal#terminos"
+                className="text-[#5AAD94] hover:text-[#A47C48] transition font-semibold"
+                aria-label="Términos de Servicio"
+              >
+                Términos de Servicio
+              </a>
+              <span className="text-gray-500">•</span>
+              <a
+                href="/legal#privacidad"
+                className="text-[#5AAD94] hover:text-[#A47C48] transition font-semibold"
+                aria-label="Política de Privacidad"
+              >
+                Política de Privacidad
+              </a>
+              <span className="text-gray-500">•</span>
+              <a
+                href="/legal#aviso-legal"
+                className="text-[#5AAD94] hover:text-[#A47C48] transition font-semibold"
+                aria-label="Aviso Legal"
+              >
+                Aviso Legal
+              </a>
+              <span className="text-gray-500">•</span>
+              <a
+                href="/legal#cookies"
+                className="text-[#5AAD94] hover:text-[#A47C48] transition font-semibold"
+                aria-label="Política de Cookies"
+              >
+                Política de Cookies
+              </a>
             </div>
           </div>
 
-          <div className="text-center text-xs text-gray-500">
+          <div className="text-center text-xs text-gray-500 border-t border-gray-700 pt-6">
             © {new Date().getFullYear()} {COMPANY_NAME} – Todos los derechos reservados.
           </div>
         </div>

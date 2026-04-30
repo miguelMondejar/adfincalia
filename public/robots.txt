@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
 Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.pdf$
 
+# Specific crawl delays
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://grupoadfincas.es/sitemap.xml

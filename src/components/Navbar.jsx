@@ -56,11 +56,19 @@ export default function Navbar() {
 
   const scrollToTop = (e) => {
     e.preventDefault(); 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    setMenuOpen(false);
+    const path = window.location.pathname;
+    
+    // Si está en /legal, vuelve a inicio
+    if (path.includes("/legal")) {
+      window.location.href = "/";
+    } else {
+      // Si está en inicio, scroll suave al top
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      setMenuOpen(false);
+    }
   };
 
   return (
