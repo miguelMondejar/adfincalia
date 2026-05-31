@@ -8,6 +8,7 @@ import RealEstate from "./components/RealEstate";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import LegalInfo from "./pages/LegalInfo";
 import Hero from "./components/Hero";
 import SEO from "./components/SEO";
@@ -73,6 +74,7 @@ function App() {
         )}
         
         <Footer />
+        <FloatingWhatsApp />
         <CookieConsent />
       </div>
     </HelmetProvider>

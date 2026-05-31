@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faExclamationCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { REAL_ESTATE_SERVICES } from "../data/realEstateServices";
 import emailjs from "@emailjs/browser";
+import { trackEvent } from "../utils/analyticsConfig";
 import { EMAIL, EMAILJS_SERVICE_ID, EMAILJS_CONFIRMATION_TEMPLATE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "../data/constants";
 
 // Inicializar EmailJS
@@ -95,6 +96,7 @@ export default function RealEstate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    trackEvent("realestate_form_submit_attempt", { property_type: formData.propertyType });
     
     // Validar formulario
     const validationErrors = validateForm(formData);
@@ -371,15 +373,18 @@ export default function RealEstate() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 bg-white text-[#5AAD94] px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-50 transition disabled:opacity-60 disabled:cursor-not-allowed shadow-lg"
+                  className="flex-1 bg-gradient-to-r from-white to-yellow-50 text-[#5AAD94] px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:scale-105 duration-300 flex items-center justify-center gap-2"
                 >
                   {loading ? (
-                    <span className="flex items-center justify-center gap-2">
+                    <>
                       <span className="inline-block animate-spin">⟳</span>
                       Enviando...
-                    </span>
+                    </>
                   ) : (
-                    "Enviar Solicitud"
+                    <>
+                      Enviar Solicitud
+                      <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+                    </>
                   )}
                 </button>
               </div>

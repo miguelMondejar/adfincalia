@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faAward, faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faAward, faChartLine, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import img from "../assets/towfiqu-barbhuiya-05XcCfTOzN4-unsplash.jpg";
+import { SECTIONS } from "../data/constants";
+import { trackEvent } from "../utils/analyticsConfig";
 
 export default function AboutUs() {
   const stats = [
@@ -8,6 +10,11 @@ export default function AboutUs() {
     { icon: faUsers, value: "100+", label: "Propiedades gestionadas" },
     { icon: faChartLine, value: "98%", label: "Satisfacción de clientes" }
   ];
+
+  const handleCTA = () => {
+    trackEvent("aboutus_cta_click", { section: "quienes-somos" });
+    document.querySelector(`#${SECTIONS.contact}`)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section id="quienes-somos" className="py-20 bg-white">
@@ -74,7 +81,7 @@ export default function AboutUs() {
         </div>
 
         {/* Statistics Section */}
-        <div className="bg-gray-50 rounded-lg p-12">
+        <div className="bg-gray-50 rounded-lg p-12 mb-12">
           <h3 className="text-2xl font-bold text-center text-[#1A1A1A] mb-12">
             Nuestros Números
           </h3>
@@ -96,6 +103,23 @@ export default function AboutUs() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-gradient-to-r from-[#5AAD94] to-[#A47C48] rounded-lg p-12 text-center text-white">
+          <h3 className="text-3xl font-bold mb-4">
+            ¿Listo para mejorar la administración de tu propiedad?
+          </h3>
+          <p className="text-lg mb-8 opacity-95 max-w-2xl mx-auto">
+            Únete a más de 100 propiedades que confían en ADFincas para su gestión profesional
+          </p>
+          <button
+            onClick={handleCTA}
+            className="bg-white text-[#5AAD94] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl hover:shadow-2xl hover:scale-105 duration-300 inline-flex items-center gap-2"
+          >
+            Solicitar Presupuesto Gratuito
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
         </div>
       </div>
     </section>
